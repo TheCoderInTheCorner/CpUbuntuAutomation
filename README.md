@@ -1,4 +1,4 @@
-# CpUbuntuAutomation
+# Cp UbuntuAutomation
 This is a simple file aimed at automating ubuntu hardening
 
 The program will do the following
