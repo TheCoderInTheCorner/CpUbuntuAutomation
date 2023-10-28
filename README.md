@@ -1,5 +1,6 @@
 <h1>CP Ubuntu Automation </h1> 
 <h3>‼️STILL IN PROGRESS‼️</h3>
+MAKE SURE FILE IS IN HOME DIRECTORY
 This is a simple file aimed at automating ubuntu hardening
 
 The program will do the following
