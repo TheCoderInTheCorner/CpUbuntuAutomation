@@ -1,5 +1,5 @@
-<h1>TEST</h1>
-# Cp UbuntuAutomation
+<h1>CP Ubuntu Automation </h1> 
+<h3>‼️STILL IN PROGRESS‼️</h3>
 This is a simple file aimed at automating ubuntu hardening
 
 The program will do the following
