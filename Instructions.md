@@ -7,4 +7,10 @@
 <p>❗️Make Sure That It Isn't Your Home Directory It Should Be The One That All Users Share❗️</p>
 
 <h3>Setting Up File For Execution</h3>
-<p>Within The Directory </p>
+<p>Within The Code Locate Line Number 26</p>
+<p>It should look something like this</p>
+```python 
+
+x=input() 
+
+```
