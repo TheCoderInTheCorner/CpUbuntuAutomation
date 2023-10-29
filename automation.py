@@ -18,8 +18,12 @@ def filterUsers(authUsers_):
         allusers.remove("")
     authUsers=set(authUsers)
     allusers=set(allusers)
+    for i in allusers:
+        x = 'sudo chmod +rwx '+i
+        subprocess.run(x,shell=True)
     return allusers.difference(authUsers)
-
+    
+UsersDel=filterUsers('''Line You Change''')
 print("Running Cyberpatriots Ubuntu Hardening")
 print("This program will notify you when deleting files or making any other significant changes")
 print("The program will do the following")
@@ -54,8 +58,7 @@ else:
    print("Files Were Not Deleted")
 
 #Deleting Unauthorized users
-#Set parameters by yourself
-UsersDel=filterUsers('''Line You Change''')
+#Set parameters by yoursel
 for i in UsersDel:
     grantAcess = input("Delete User: "+i+" (y/n)")
     if(grantAcess == "y"):
