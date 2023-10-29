@@ -28,12 +28,12 @@ print("")
 allow = input('Run Program (y/n)')
 
 
-##subprocess.run('sudo apt upgrade',shell=True)
+subprocess.run('sudo apt upgrade',shell=True)
 
 # firewall policies 
-##subprocess.run('sudo ufw default deny incoming',shell=True)
-##subprocess.run('sudo ufw default allow outgoing',shell=True)
-##subprocess.run('sudo ufw enable',shell=True)
+subprocess.run('sudo ufw default deny incoming',shell=True)
+subprocess.run('sudo ufw default allow outgoing',shell=True)
+subprocess.run('sudo ufw enable',shell=True)
 
 # finds and deletes mp3 files, 
 # the + terminates the exec command and is more efficent as it allows the command to ground files together
@@ -43,21 +43,25 @@ allow = input('Run Program (y/n)')
 # and the {} is used to symbolize the files found
 # the -o stands for the OR operand
 
-##print("Following files found in home directory:")
-##subprocess.run('sudo find /home/ \( -iname "*.mp3" -o -iname "*.mp4" -o -iname "*.mov" -o -iname "*.wav" \)',shell=True)
+print("Following files found in home directory:")
+subprocess.run('sudo find /home/ \( -iname "*.mp3" -o -iname "*.mp4" -o -iname "*.mov" -o -iname "*.wav" \)',shell=True)
 
-##delMedia = input("Delete All Media Files (y/n)")
+delMedia = input("Delete All Media Files (y/n)")
 
-##if(delMedia == 'y'):
-##    subprocess.run(['sudo find /home/ \( -iname "*.mp3" -o -iname "*.mp4" -o -iname "*.mov" -o -iname "*.wav" \) -exec rm {} +'],shell=True)
-##else:
-##   print("Files Were Not Deleted")
+if(delMedia == 'y'):
+    subprocess.run(['sudo find /home/ \( -iname "*.mp3" -o -iname "*.mp4" -o -iname "*.mov" -o -iname "*.wav" \) -exec rm {} +'],shell=True)
+else:
+   print("Files Were Not Deleted")
 
 #Deleting Unauthorized users
 #Set parameters by yourself
-UsersDel=filterUsers('''jim,
-william ,
-matt,
-kenneth,
-basu_khadka''')
+UsersDel=filterUsers('''Line You Change''')
 print(UsersDel)
+for i in UsersDel:
+    grantAcess = input("Delete User: "+i+" (y/n)")
+    if(grantAcess == "y"):
+        x = "sudo userdel " + i + " -fr"
+        if(i != ""): #YOU PUT IN YOUR NAME
+            subprocess.run(x,shell=True)
+    else:
+        print("Did not delete User "+i)
