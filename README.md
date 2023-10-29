@@ -6,13 +6,9 @@ This is a simple file aimed at automating ubuntu hardening
 
 The program will do the following
 
-    #Setup firewall
+    Setup firewall
     Updates
-    User auditing
+    Deleting Users
     Delete Non Work Related Media FIles
-The Program will NOT do the following
-
-    Forensics
-    Making users admin or taking away admin
 
 program will ask you before deleteing anything
