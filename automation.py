@@ -6,7 +6,6 @@ def filterUsers(authUsers_):
 
     allusers = subprocess.run("ls -d */",shell=True,stdout=subprocess.PIPE,text=True)
     allusers = allusers.stdout
-    print(allusers)
     allusers = allusers.split("/")
 
     for i in allusers:
@@ -44,7 +43,7 @@ subprocess.run('sudo ufw enable',shell=True)
 # and the {} is used to symbolize the files found
 # the -o stands for the OR operand
 
-print("Following files found in home directory:")
+print("========== Following files found in home directory: ==========")
 subprocess.run('sudo find /home/ \( -iname "*.mp3" -o -iname "*.mp4" -o -iname "*.mov" -o -iname "*.wav" \)',shell=True)
 
 delMedia = input("Delete All Media Files (y/n)")
@@ -57,7 +56,6 @@ else:
 #Deleting Unauthorized users
 #Set parameters by yourself
 UsersDel=filterUsers('''Line You Change''')
-print(UsersDel)
 for i in UsersDel:
     grantAcess = input("Delete User: "+i+" (y/n)")
     if(grantAcess == "y"):
