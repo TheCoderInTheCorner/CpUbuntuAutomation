@@ -22,12 +22,11 @@ def filterUsers(authUsers_):
         x = 'sudo chmod +rwx '+i
         subprocess.run(x,shell=True)
     return allusers.difference(authUsers)
-    
+# YOU CHANGE THIS LINE
 UsersDel=filterUsers('''Line You Change''')
+# ========================================
 print("Running Cyberpatriots Ubuntu Hardening")
-print("This program will notify you when deleting files or making any other significant changes")
-print("The program will do the following")
-print("")
+print("This program will notify you when deleting files, users or making any other significant changes")
 
 allow = input('Run Program (y/n)')
 
