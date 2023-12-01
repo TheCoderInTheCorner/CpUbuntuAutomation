@@ -1,14 +1,1 @@
-<h1>CP Ubuntu Automation </h1> 
-<h3>‼️STILL IN PROGRESS‼️</h3>
-MAKE SURE FILE IS IN HOME DIRECTORY
-
-This is a simple file aimed at automating ubuntu hardening
-
-The program will do the following
-
-    Setup firewall
-    Updates
-    Deleting Users
-    Delete Non Work Related Media FIles
-
-program will ask you before deleteing anything
+dont do anything yet its still in progress
