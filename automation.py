@@ -20,10 +20,10 @@ This Program will do the follwoing
 
 '''
 
-#===============  Variables You Set Up ==============#
-AllUsers = [
-    ""
-]
+correct_users = "basu_guest,jimmy,willow,bob,billy"
+
+correct_users = correct_users.split(",")
+correct_users = set(correct_users)
 #====================================================#
 
 
@@ -57,9 +57,10 @@ subprocess.run("sudo apt update",shell=True)
 
 # UFW Config
 subprocess.run("sudo apt install ufw",shell=True)
-deny = subprocess.run("sudo ufw default deny incoming >/dev/null",shell=True)
 
+deny = subprocess.run("sudo ufw default deny incoming >/dev/null",shell=True)
 returnCode(deny,"UFW Incoming is set to deny","UFW Incoming FAILED to set to deny")
+
 allow = subprocess.run("sudo ufw default allow outgoing >/dev/null",shell=True)
 returnCode(allow,"UFW outgoing is set to allow","UFW outgoing FAILED to set to allow")
 
@@ -75,10 +76,35 @@ delete = input("Would You Like To Delete These Prohibited Files? (y/n)")
 if(delete == "y"):
     GetProhibitedFiles(True)
 else:
-    print("="*20 + "\nDid not delete FIles\n" + "="*20)
+    print("="*21 + "\nDid not delete Files\n" + "="*21)
 
 # NGINX Service
 subprocess.run("sudo systemctl stop nginx",shell=True)
 subprocess.run("sudo systemctl disable nginx",shell=True)
 
-# SSH
+# Users
+all_users = subprocess.run("ls home",shell=True, capture_output=True,text=True)
+all_users = all_users.stdout
+all_users = all_users.split("\n")
+if(all_users.__contains__('')):
+    all_users.remove('')
+all_users = set(all_users)
+# Removing Users
+remove_users = all_users.difference(correct_users)
+for i in remove_users:
+    del_ = input("Delete Users "+i+" (y/n)")
+    if(del_ == "y"):
+        command = "sudo deluser --remove-home "+i
+        subprocess.run(command,shell=True)
+    else:
+        print("Did Not Delete User "+i)
+# Adding Users
+add_users = correct_users.difference(all_users)
+
+for i in add_users:
+    del_ = input("add User "+i+" (y/n)")
+    if(del_ == "y"):
+        command = "sudo adduser "+i
+        subprocess.run(command,shell=True)
+    else:
+        print("Did Not Add User "+i)
