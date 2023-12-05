@@ -21,8 +21,7 @@ This Program will do the follwoing
 
 '''
 
-correct_users = "basu_guest,jimmy,willow,bob,billy,jim_jim"
-admin = ""
+correct_users = ""
 
 correct_users = correct_users.split(",")
 correct_users = set(correct_users)
@@ -110,9 +109,3 @@ if(add_users != set()):
             subprocess.run(command,shell=True)
         else:
             print("Did Not Add User "+i)
-# Admin and Normal User 
-
-all_admin = subprocess.run("sudo -l",shell=True,capture_output=True,text=True)
-all_admin = all_admin.stdout
-print(all_admin)
-# PAM files
